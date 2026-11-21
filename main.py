@@ -19,7 +19,7 @@ cluster_name_map = joblib.load(
 
 # Create FastAPI application
 app = FastAPI(
-    title="Smart Marketing Decision Support API",vscod
+    title="Smart Marketing Decision Support API",
     description="Customer Segmentation using RFM and K-Means",
     version="1.0"
 )
