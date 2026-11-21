@@ -19,17 +19,26 @@ cluster_name_map = joblib.load(
 
 # Create FastAPI application
 app = FastAPI(
-    title="Smart Marketing Decision Support API",
+    title="Smart Marketing Decision Support API",vscod
     description="Customer Segmentation using RFM and K-Means",
     version="1.0"
 )
 
 # Input data
 class CustomerData(BaseModel):
-    Recency: float = Field(..., ge=0)
-    Frequency: float = Field(..., ge=1)
-    Monetary: float = Field(..., gt=0)
+    Recency: float = Field(default=10, ge=0)
+    Frequency: float = Field(default=15, ge=1)
+    Monetary: float = Field(default=5000, gt=0)
 
+    model_config = {
+        "json_schema_extra": {
+            "example": {
+                "Recency": 10,
+                "Frequency": 15,
+                "Monetary": 5000
+            }
+        }
+    }
 
 @app.get("/")
 def home():
